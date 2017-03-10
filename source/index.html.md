@@ -19,60 +19,21 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the i am a Kid API! You can use our API to access iamakid API endpoints, which can get information on various cats, kittens, and breeds in our database.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We have language bindings in Shell, Ruby, Python and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+This example API documentation page was created with [Slate](https://github.com/tripit/slate).
 
-# Authentication
 
-> To authorize, use this code:
+# Content
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
+## Get All Content
 
 ```ruby
-require 'kittn'
+require 'iamakid'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = iamakid::APIClient.authorize!('meowmeowmeow')
 api.kittens.get
 ```
 
@@ -84,8 +45,7 @@ api.kittens.get()
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "https://vma6go3pve.execute-api.us-east-1.amazonaws.com/Dev/iamakidalldata"
 ```
 
 ```javascript
@@ -100,37 +60,32 @@ let kittens = api.kittens.get();
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+      "StoryAudioSize": 5191771,
+      "StoryImageUrl": "https://iamakid.s3-accelerate.amazonaws.com/story-images/Beauty%20And%20The%20Beast.png?AWSAccessKeyId=ASIAJEJ5MYKJWYHT2WSA&Expires=1489668550&Signature=nV2fVVjOFKohnUntXIoPwHmEn9g%3D&x-amz-security-token=FQoDYXdzEEYaDIZKB5isk%2FKWCnKCKyLmAXxt1odw0l3DfR8p%2Bh3Kgq98eOVceG%2FyTKJHf7ymwCVyaw7KXqf1VMJ3vxp2pKnWQmHwSDErzAwVA5UQamBvNvWkh3UOxajG2ZgQ9p6WMXldVvHWKM6ZQQPI%2FHQGkIErRR9OHA7%2FjjLZ8j4JBMNZMS8X3bZH9owKsa7xSIV82uCOThspp0c%2BA9Aabxbd5W4p6H9huR838gIQm%2F%2Fotmcb3T7%2Fh8ydF721xOu%2FVj1Hszdn%2F2rI3wz6BpqUBNqRuU53BoLAATfZ5N5eNvdkvMDB%2Fvl%2ButFD7JcyuicsrZMXg3uF%2FIcSjLVlKOaRhcYF",
+      "StoryName": "Beauty And The Beast",
+      "StoryTextSize": 1656,
+      "StoryImageSize": 136975,
+      "StoryTextUrl": "https://iamakid.s3-accelerate.amazonaws.com/story-text/Beauty%20And%20The%20Beast.txt?AWSAccessKeyId=ASIAJEJ5MYKJWYHT2WSA&Expires=1489668548&Signature=nPm0iF1ssyDSvMF6ZKfB7KjE6i4%3D&x-amz-security-token=FQoDYXdzEEYaDIZKB5isk%2FKWCnKCKyLmAXxt1odw0l3DfR8p%2Bh3Kgq98eOVceG%2FyTKJHf7ymwCVyaw7KXqf1VMJ3vxp2pKnWQmHwSDErzAwVA5UQamBvNvWkh3UOxajG2ZgQ9p6WMXldVvHWKM6ZQQPI%2FHQGkIErRR9OHA7%2FjjLZ8j4JBMNZMS8X3bZH9owKsa7xSIV82uCOThspp0c%2BA9Aabxbd5W4p6H9huR838gIQm%2F%2Fotmcb3T7%2Fh8ydF721xOu%2FVj1Hszdn%2F2rI3wz6BpqUBNqRuU53BoLAATfZ5N5eNvdkvMDB%2Fvl%2ButFD7JcyuicsrZMXg3uF%2FIcSjLVlKOaRhcYF",
+      "StoryAudioUrl": "https://iamakid.s3-accelerate.amazonaws.com/story-audio/Beauty%20And%20The%20Beast.mp3?AWSAccessKeyId=ASIAJEJ5MYKJWYHT2WSA&Expires=1489668553&Signature=WTlYfL3GsfCscollSxmF5%2BGP3aw%3D&x-amz-security-token=FQoDYXdzEEYaDIZKB5isk%2FKWCnKCKyLmAXxt1odw0l3DfR8p%2Bh3Kgq98eOVceG%2FyTKJHf7ymwCVyaw7KXqf1VMJ3vxp2pKnWQmHwSDErzAwVA5UQamBvNvWkh3UOxajG2ZgQ9p6WMXldVvHWKM6ZQQPI%2FHQGkIErRR9OHA7%2FjjLZ8j4JBMNZMS8X3bZH9owKsa7xSIV82uCOThspp0c%2BA9Aabxbd5W4p6H9huR838gIQm%2F%2Fotmcb3T7%2Fh8ydF721xOu%2FVj1Hszdn%2F2rI3wz6BpqUBNqRuU53BoLAATfZ5N5eNvdkvMDB%2Fvl%2ButFD7JcyuicsrZMXg3uF%2FIcSjLVlKOaRhcYF"
+    },
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all content for all the stories.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://vma6go3pve.execute-api.us-east-1.amazonaws.com/Dev/iamakidalldata`
 
 ### Query Parameters
 
-Parameter | Default | Description
+<!--Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+available | true | If set to false, the result will include kittens that have already been adopted.-->
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — It is a get request
 </aside>
 
 ## Get a Specific Kitten
@@ -150,8 +105,7 @@ api.kittens.get(2)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl "https://vma6go3pve.execute-api.us-east-1.amazonaws.com/Dev/writetoddb"
 ```
 
 ```javascript
@@ -165,25 +119,20 @@ let max = api.kittens.get(2);
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "Message": "Successfully Written to DynamoDB"
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint allows the copying of all data from buckets to DB.
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://vma6go3pve.execute-api.us-east-1.amazonaws.com/Dev/writetoddb`
 
 ### URL Parameters
 
-Parameter | Description
+<!--Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
-
+ID | The ID of the kitten to retrieve-->
