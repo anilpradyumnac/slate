@@ -3,9 +3,8 @@ title: API Reference
 
 language_tabs:
   - shell
-  - ruby
-  - python
   - javascript
+  - swift
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -30,31 +29,51 @@ This example API documentation page was created with [Slate](https://github.com/
 
 ## Get All Content
 
-```ruby
-require 'iamakid'
-
-api = iamakid::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
 ```shell
 curl "https://vma6go3pve.execute-api.us-east-1.amazonaws.com/Dev/iamakidalldata"
 ```
 
 ```javascript
-const kittn = require('kittn');
+var request = require("request");
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+var options = { method: 'GET',
+  url: 'https://vma6go3pve.execute-api.us-east-1.amazonaws.com/Dev/iamakidalldata',
+  headers: 
+   { 'postman-token': 'e8e8b9c2-bc13-b743-eea4-c51cd284cf78',
+     'cache-control': 'no-cache' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
 ```
+```swift
+import Foundation
 
+let headers = [
+  "cache-control": "no-cache",
+  "postman-token": "68537c46-ccc4-f1e0-6c39-0e726bfc281a"
+]
+
+let request = NSMutableURLRequest(url: NSURL(string: "https://vma6go3pve.execute-api.us-east-1.amazonaws.com/Dev/iamakidalldata")! as URL,
+                                        cachePolicy: .useProtocolCachePolicy,
+                                    timeoutInterval: 10.0)
+request.httpMethod = "GET"
+request.allHTTPHeaderFields = headers
+
+let session = URLSession.shared
+let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+  if (error != nil) {
+    print(error)
+  } else {
+    let httpResponse = response as? HTTPURLResponse
+    print(httpResponse)
+  }
+})
+
+dataTask.resume()
+```
 > The above command returns JSON structured like this:
 
 ```json
@@ -67,7 +86,7 @@ let kittens = api.kittens.get();
       "StoryImageSize": 136975,
       "StoryTextUrl": "https://iamakid.s3-accelerate.amazonaws.com/story-text/Beauty%20And%20The%20Beast.txt?AWSAccessKeyId=ASIAJEJ5MYKJWYHT2WSA&Expires=1489668548&Signature=nPm0iF1ssyDSvMF6ZKfB7KjE6i4%3D&x-amz-security-token=FQoDYXdzEEYaDIZKB5isk%2FKWCnKCKyLmAXxt1odw0l3DfR8p%2Bh3Kgq98eOVceG%2FyTKJHf7ymwCVyaw7KXqf1VMJ3vxp2pKnWQmHwSDErzAwVA5UQamBvNvWkh3UOxajG2ZgQ9p6WMXldVvHWKM6ZQQPI%2FHQGkIErRR9OHA7%2FjjLZ8j4JBMNZMS8X3bZH9owKsa7xSIV82uCOThspp0c%2BA9Aabxbd5W4p6H9huR838gIQm%2F%2Fotmcb3T7%2Fh8ydF721xOu%2FVj1Hszdn%2F2rI3wz6BpqUBNqRuU53BoLAATfZ5N5eNvdkvMDB%2Fvl%2ButFD7JcyuicsrZMXg3uF%2FIcSjLVlKOaRhcYF",
       "StoryAudioUrl": "https://iamakid.s3-accelerate.amazonaws.com/story-audio/Beauty%20And%20The%20Beast.mp3?AWSAccessKeyId=ASIAJEJ5MYKJWYHT2WSA&Expires=1489668553&Signature=WTlYfL3GsfCscollSxmF5%2BGP3aw%3D&x-amz-security-token=FQoDYXdzEEYaDIZKB5isk%2FKWCnKCKyLmAXxt1odw0l3DfR8p%2Bh3Kgq98eOVceG%2FyTKJHf7ymwCVyaw7KXqf1VMJ3vxp2pKnWQmHwSDErzAwVA5UQamBvNvWkh3UOxajG2ZgQ9p6WMXldVvHWKM6ZQQPI%2FHQGkIErRR9OHA7%2FjjLZ8j4JBMNZMS8X3bZH9owKsa7xSIV82uCOThspp0c%2BA9Aabxbd5W4p6H9huR838gIQm%2F%2Fotmcb3T7%2Fh8ydF721xOu%2FVj1Hszdn%2F2rI3wz6BpqUBNqRuU53BoLAATfZ5N5eNvdkvMDB%2Fvl%2ButFD7JcyuicsrZMXg3uF%2FIcSjLVlKOaRhcYF"
-    },
+    },...
 ]
 ```
 
@@ -90,31 +109,51 @@ Remember — It is a get request
 
 ## Get a Specific Kitten
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
 ```shell
 curl "https://vma6go3pve.execute-api.us-east-1.amazonaws.com/Dev/writetoddb"
 ```
 
 ```javascript
-const kittn = require('kittn');
+var request = require("request");
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+var options = { method: 'GET',
+  url: 'https://vma6go3pve.execute-api.us-east-1.amazonaws.com/Dev/writetoddb',
+  headers: 
+   { 'postman-token': 'c8d55dc2-75ee-98ee-e9c3-ee6e5c7ce35e',
+     'cache-control': 'no-cache' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
 ```
+```swift
+import Foundation
 
+let headers = [
+  "cache-control": "no-cache",
+  "postman-token": "5896e215-d5f8-293d-b8dc-105b012d0f11"
+]
+
+let request = NSMutableURLRequest(url: NSURL(string: "https://vma6go3pve.execute-api.us-east-1.amazonaws.com/Dev/writetoddb")! as URL,
+                                        cachePolicy: .useProtocolCachePolicy,
+                                    timeoutInterval: 10.0)
+request.httpMethod = "GET"
+request.allHTTPHeaderFields = headers
+
+let session = URLSession.shared
+let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+  if (error != nil) {
+    print(error)
+  } else {
+    let httpResponse = response as? HTTPURLResponse
+    print(httpResponse)
+  }
+})
+
+dataTask.resume()
+```
 > The above command returns JSON structured like this:
 
 ```json
